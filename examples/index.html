@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter wrapper example</title>
+    <link rel="stylesheet" href="https://cdn.awema.pl/5cd207e2c94eb723c3307764a5693def/awema-pl/indigo-layout/v1.x.x/css/main.css">
+
+    <!-- config -->
+    <script>
+        const AWEMA_CONFIG = {
+            dev: true,
+            key: '5cd207e2c94eb723c3307764a5693def'
+        }
+    </script>
+
+    <!-- filter-wrapper -->
+    <script src="js/main.js"></script>
+
+    <!-- indigo layout -->
+    <script src="https://cdn.awema.pl/5cd207e2c94eb723c3307764a5693def/awema-pl/indigo-layout/v1.x.x/js/main.js"></script>
+
+    <!-- form-builder -->
+    <script src="https://cdn.awema.pl/5cd207e2c94eb723c3307764a5693def/awema-pl/form-builder/v1.4.x/js/main.js"></script>
+
+    <!-- js core -->
+    <script src="https://cdn.awema.pl/5cd207e2c94eb723c3307764a5693def/awema-pl/base-js/v1.x.x/js/main.js"></script>
+</head>
+<body>
+    <div id="awema-app" class="mainwrapper">
+        <h1>Filters</h1>
+        <p>Filters demo</p>
+        <hr>
+
+        <h2>Filter-builder</h2>
+        <p>Filter builder example</p>
+        <content-wrapper :default="{test:'test'}" store-data="test">
+            <template>
+                <div class="btn-group">
+                    <filter-builder label="Active" :param="{active: ''}" active></filter-builder>
+                    <filter-builder label="All" :param="{active: 'all'}"></filter-builder>
+                </div>
+            </template>
+        </content-wrapper>
+
+        <h2>Filter-wrapper</h2>
+        <p>Filter wrapper for form-builder example</p>
+
+        <!-- {{ $awemaFilters.state.active['filter1'] }} -->
+        <!-- {{ AWEMA._store.getters['forms/fieldValue']('filter1', 'filter1_active') }} -->
+
+        <content-wrapper>
+            <filter-wrapper name="filter1">
+                <fb-input name="text" label="Text"></fb-input>
+                <fb-select name="array" label="Array"
+                :select-options="[{name: 'Option 1', value: 'option_one'}, {name: 'Option 2', value: 'option_two'}]"></fb-select>
+            </filter-wrapper>
+        </content-wrapper>
+    </div>
+</body>
+</html>
