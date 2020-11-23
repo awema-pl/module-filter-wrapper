@@ -1,6 +1,6 @@
 {
     "name": "awema-pl/module-filter-wrapper",
-    "description": ":description",
+    "description": "Module filter wrapper.",
     "type": "library",
     "license": "MIT",
     "authors": [
